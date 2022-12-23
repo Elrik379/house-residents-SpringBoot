@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+</head>
+<body>
+<h2>Список жильцов</h2>
+<table border="1px" cellpadding="1" cellspacing="1" style="width: 500px">
+  <tr>
+    <th>Житель</th>
+    <th>Год рождения</th>
+    <th>Номер квартиры</th>
+  </tr>
+  <tr th:each="p: ${tenants}" >
+    <td th:text="${p.name}"></td>
+    <td th:text="${p.year}"></td>
+    <td th:text="${p.room}"></td>
+  </tr>
+</table>
+
+<h2>Добавить жильца</h2>
+<form action="/tenants" method="POST">
+  Имя: <input style=position:absolute;left:6%;
+        type="text"
+        name="name"><br />
+  Год рождения: <input style=position:absolute;left:6%;
+        type="number"
+        step="any"
+        name="year"><br />
+  Квартира: <input style=position:absolute;left:6%;
+        type="number"
+        step="any"
+        name="room"><br />
+  <button type="submit">Добавить</button>
+</form>
+</body>
+</html>
